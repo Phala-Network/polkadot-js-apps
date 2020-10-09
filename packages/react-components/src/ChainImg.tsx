@@ -1,6 +1,5 @@
 // Copyright 2017-2020 @polkadot/apps authors & contributors
-// This software may be modified and distributed under the terms
-// of the Apache-2.0 license. See the LICENSE file for details.
+// SPDX-License-Identifier: Apache-2.0
 
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
@@ -13,20 +12,9 @@ interface Props {
   onClick?: () => any;
 }
 
-function preloadSet (images: Record<string, any>): void {
-  Object.values(images).forEach((src): void => {
-    new Image().src = src as string;
-  });
-}
-
 function sanitize (value?: string): string {
   return value?.toLowerCase().replace('-', ' ') || '';
 }
-
-// preload on app init
-preloadSet(chainLogos);
-preloadSet(namedLogos);
-preloadSet(nodeLogos);
 
 function ChainImg ({ className = '', logo, onClick }: Props): React.ReactElement<Props> {
   const { systemChain, systemName } = useApi();
@@ -47,6 +35,7 @@ function ChainImg ({ className = '', logo, onClick }: Props): React.ReactElement
 }
 
 export default React.memo(styled(ChainImg)`
+  background: white;
   border-radius: 50%;
   box-sizing: border-box;
 `);

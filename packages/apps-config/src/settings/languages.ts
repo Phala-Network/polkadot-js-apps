@@ -1,6 +1,5 @@
 // Copyright 2017-2020 @polkadot/apps-config authors & contributors
-// This software may be modified and distributed under the terms
-// of the Apache-2.0 license. See the LICENSE file for details.
+// SPDX-License-Identifier: Apache-2.0
 
 import { TFunction } from 'i18next';
 import { Option } from './types';
@@ -24,6 +23,18 @@ export default function create (t: TFunction): Option[] {
     {
       text: 'Español',
       value: 'es'
+    },
+    {
+      text: 'Français',
+      value: 'fr'
+    },
+    {
+      text: 'Bahasa Indonesia',
+      value: 'id'
+    },
+    {
+      text: 'Italiano',
+      value: 'it'
     },
     {
       text: '日本語',

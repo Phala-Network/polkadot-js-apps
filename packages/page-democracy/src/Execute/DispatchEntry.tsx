@@ -1,6 +1,5 @@
 // Copyright 2017-2020 @polkadot/app-democracy authors & contributors
-// This software may be modified and distributed under the terms
-// of the Apache-2.0 license. See the LICENSE file for details.
+// SPDX-License-Identifier: Apache-2.0
 
 import { DeriveDispatch } from '@polkadot/api-derive/types';
 import { BlockNumber } from '@polkadot/types/interfaces';
@@ -45,11 +44,11 @@ function DispatchEntry ({ value: { at, image, imageHash, index } }: Props): Reac
           />
         )}
       </td>
-      <td className='mini media--1000'>
+      <td className='links media--1000'>
         <LinkExternal
           data={index}
+          isLogo
           type='referendum'
-          withShort
         />
       </td>
     </tr>

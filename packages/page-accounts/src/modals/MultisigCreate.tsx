@@ -1,6 +1,5 @@
 // Copyright 2017-2020 @polkadot/app-accounts authors & contributors
-// This software may be modified and distributed under the terms
-// of the Apache-2.0 license. See the LICENSE file for details.
+// SPDX-License-Identifier: Apache-2.0
 
 import { ActionStatus } from '@polkadot/react-components/Status/types';
 import { ModalProps } from '../types';
@@ -10,7 +9,6 @@ import React, { useCallback, useState } from 'react';
 import { Button, Input, InputAddressMulti, InputNumber, Modal } from '@polkadot/react-components';
 import { useApi } from '@polkadot/react-hooks';
 import keyring from '@polkadot/ui-keyring';
-import { BN_ONE } from '@polkadot/util';
 
 import { useTranslation } from '../translate';
 import useKnownAddresses from '../Accounts/useKnownAddresses';
@@ -28,6 +26,7 @@ interface CreateOptions {
 }
 
 const MAX_SIGNATORIES = 16;
+const BN_TWO = new BN(2);
 
 function createMultisig (signatories: string[], threshold: BN | number, { genesisHash, name, tags = [] }: CreateOptions, success: string): ActionStatus {
   // we will fill in all the details below
@@ -54,7 +53,7 @@ function Multisig ({ className = '', onClose, onStatusChange }: Props): React.Re
   const availableSignatories = useKnownAddresses();
   const [{ isNameValid, name }, setName] = useState({ isNameValid: false, name: '' });
   const [signatories, setSignatories] = useState<string[]>(['']);
-  const [{ isThresholdValid, threshold }, setThreshold] = useState({ isThresholdValid: true, threshold: BN_ONE });
+  const [{ isThresholdValid, threshold }, setThreshold] = useState({ isThresholdValid: true, threshold: BN_TWO });
 
   const _createMultisig = useCallback(
     (): void => {
@@ -74,7 +73,7 @@ function Multisig ({ className = '', onClose, onStatusChange }: Props): React.Re
 
   const _onChangeThreshold = useCallback(
     (threshold: BN | undefined) =>
-      threshold && setThreshold({ isThresholdValid: threshold.gtn(0) && threshold.lten(signatories.length), threshold }),
+      threshold && setThreshold({ isThresholdValid: threshold.gte(BN_TWO) && threshold.lten(signatories.length), threshold }),
     [signatories]
   );
 
@@ -111,6 +110,7 @@ function Multisig ({ className = '', onClose, onStatusChange }: Props): React.Re
               isError={!isThresholdValid}
               label={t<string>('threshold')}
               onChange={_onChangeThreshold}
+              value={threshold}
             />
           </Modal.Column>
           <Modal.Column>
