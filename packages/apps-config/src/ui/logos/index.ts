@@ -33,7 +33,7 @@ import nodeKilt from './nodes/kilt.svg';
 import nodeKulupu from './nodes/kulupu.svg';
 import nodeLaminar from './nodes/laminar-circle.svg';
 import moonbeam from './nodes/moonbeam.png';
-import nodePhala from './nodes/phala.svg';
+import nodePhala from './nodes/phala.png';
 import nodePlasm from './nodes/plasm.png';
 import nodePolkadot from './nodes/polkadot-circle.svg';
 import nodePolkadotJs from './nodes/polkadot-js.svg';

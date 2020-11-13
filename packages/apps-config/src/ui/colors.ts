@@ -54,6 +54,7 @@ const chainColors: Record<string, any> = [
   ['laminar turbulence pc1', chainRococoLaminar],
   ['Moonbase Alpha', nodeMoonbeam],
   ['phala poc 2', chainPhala],
+  ['phala poc 3', chainPhala],
   ['Plasm', chainPlasm],
   ['Polkadot', chainPolkadot],
   ['Polkadot CC1', chainPolkadot],
