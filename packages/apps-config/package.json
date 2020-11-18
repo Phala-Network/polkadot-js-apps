@@ -12,7 +12,7 @@
     "@acala-network/type-definitions": "^0.4.0-beta.33",
     "@babel/runtime": "^7.12.1",
     "@edgeware/node-types": "^3.0.7",
-    "@laminar/type-definitions": "^0.2.0-beta.141",
+    "@laminar/type-definitions": "^0.2.0-beta.134",
     "@polkadot/networks": "^4.0.2-12",
     "@subsocial/types": "^0.4.7"
   }
