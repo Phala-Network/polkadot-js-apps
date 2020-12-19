@@ -6,12 +6,22 @@ export default {
   "LookupSource": "GenericLookupSource",
   "EthereumAddress": "H160",
   "EcdsaSignature": "[u8; 65]",
-  "EthereumTxHash": "H256",
+	"EthereumTxHash": "H256",
+	"WorkerStateEnum": {
+		"_enum": {
+			"Empty": null,
+			"Free": null,
+			"Gatekeeper": null,
+			"MiningPending": null,
+			"Mining": "BlockNumber",
+			"MiningStopping": null
+		}
+	},
   "WorkerInfo": {
     "machineId": "Vec<u8>",
     "pubkey": "Vec<u8>",
     "lastUpdated": "u64",
-    "status": "i32",
+    "state": "WorkerStateEnum",
     "score": "Option<Score>"
   },
   "Score": {
@@ -23,11 +33,23 @@ export default {
     "payoutPrefs": "PayoutPrefs"
   },
   "PayoutPrefs": {
-    "commission": "u32",
-    "target": "AccountId"
-  },
-  "MiningInfo": {
-    "isMining": "bool",
-    "startBlock": "Option<BlockNumber>"
-  }
+      "commission": "u32",
+      "target": "AccountId"
+	},
+	"BlockRewardInfo": {
+		"seed": "U256",
+		"onlineTarget": "U256",
+		"computeTarget": "U256"
+	},
+	"RoundInfo": {
+		"round": "u32",
+		"startBlock": "BlockNumber"
+	},
+	"RoundStats": {
+		"round": "u32",
+		"onlineWorkers": "u32",
+		"computeWorkers": "u32",
+		"fracTargetOnlineReward": "u32",
+		"totalPower": "u32"
+	}
 };
